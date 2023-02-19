@@ -28,6 +28,7 @@ const PostDate = styled.Text`
 `;
 
 const PostDetails = styled.View`
+    flex: 1;
     flex-direction: column;
     justify-content: center;
 `
