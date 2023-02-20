@@ -33,13 +33,20 @@ const PostDetails = styled.View`
     justify-content: center;
 `
 
+const truncateTitle = (str) => {
+    if (str.length >- 70) {
+        return str.substring(0, 70) + "...";   
+    } 
+    return str;
+}
+
 export default function Post({title, imgUrl, createdAt}) {
     return (
         <PostView>
             <PostImage source={{uri: imgUrl}}/>
             <PostDetails>
-                <PostTitle>{title}</PostTitle>
-                <PostDate>{createdAt}</PostDate>
+                <PostTitle>{truncateTitle(title)}</PostTitle>
+                <PostDate>{new Date(createdAt).toLocaleDateString()}</PostDate>
             </PostDetails>
         </PostView>
     );

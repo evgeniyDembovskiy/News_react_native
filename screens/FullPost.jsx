@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView} from 'react-native';
 import styled from 'styled-components/native';
 import axios from 'axios';
 import Loading from '../components/Loading';
@@ -13,8 +13,16 @@ const PostImage = styled.Image`
 `;
 
 const PostText = styled.Text`
+    font-size: 16px;
+    line-height: 22px;
+    padding-bottom: 55px;
+`;
+
+const PostTitle = styled.Text`
     font-size: 18px;
     line-height: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
 `;
 
 export const FullPostScreen = ({route, navigation}) => {
@@ -45,9 +53,10 @@ export const FullPostScreen = ({route, navigation}) => {
     }
 
     return (
-        <View style={{padding: 20}}>
+        <ScrollView style={{padding: 20}}>
+            <PostTitle>{title}</PostTitle>
             <PostImage source={{uri: data.imageUrl}}></PostImage>
             <PostText>{data.text}</PostText>
-        </View>
+        </ScrollView>
     );
 };
